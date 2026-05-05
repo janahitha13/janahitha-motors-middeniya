@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Janahitha Motors | Middeniya</title>
+
+    <meta name="description" content="Janahitha Motors Middeniya - Specialists in Japanese auto parts, motorcycle repairs, lathe work, and precision engineering. Over 23 years of excellence by Janaka Pushpa Kumara.">
+    <meta name="keywords" content="Janahitha Motors, Middeniya, Spare Parts Middeniya, Lathe work Sri Lanka, Motorcycle repair Middeniya, Japanese auto parts Sri Lanka, Janaka Pushpa Kumara, Janahitha Motors Middeniya Spare Parts">
+    <meta name="author" content="Lahiru D Arachchige">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.janahithamotors.com/">
+    <meta property="og:title" content="Janahitha Motors | Precision Engineering & Spare Parts">
+    <meta property="og:description" content="Quality spare parts and expert engineering services in Middeniya. Visit us for all your vehicle needs.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?q=80&w=1000">
+
+    <link rel="canonical" href="https://www.janahithamotors.com/">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Noto+Sans+Sinhala:wght@400;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root { 
+            --primary-blue: #004aad; 
+            --dark-blue: #001d4a; 
+            --accent-blue: #00c6ff; 
+            --white: #ffffff; 
+            --bg-gradient: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
+            --card-bg: rgba(255, 255, 255, 0.4);
+            --card-border: rgba(255, 255, 255, 0.5);
+            --text-color: #001d4a;
+            --part-stream-color: rgba(0, 74, 173, 0.05);
+        }
+
+        /* Dark Mode Variables */
+        [data-theme="dark"] {
+            --primary-blue: #00c6ff;
+            --dark-blue: #000a1a;
+            --accent-blue: #00c6ff;
+            --white: #121212;
+            --bg-gradient: linear-gradient(135deg, #000d21 0%, #001d4a 100%);
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --card-border: rgba(255, 255, 255, 0.1);
+            --text-color: #f0faff;
+            --part-stream-color: rgba(0, 198, 255, 0.03);
+        }
+
+        html { scroll-behavior: smooth; }
+        
+        body { 
+            font-family: 'Poppins', 'Noto Sans Sinhala', sans-serif; 
+            background: var(--bg-gradient); 
+            background-attachment: fixed;
+            color: var(--text-color);
+            transition: background 0.3s ease, color 0.3s ease;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        .google-review-btn {
+            display: inline-block; background: var(--white); color: var(--text-color);
+            padding: 12px 25px; border-radius: 50px; text-decoration: none;
+            font-weight: 600; margin-top: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: 0.3s; border: 1px solid var(--card-border);
+        }
+        .google-review-btn:hover { background: var(--accent-blue); color: #000; transform: scale(1.05); }
+        .google-review-btn i { color: #4285F4; margin-right: 8px; }
+
+        #bg-parts-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; overflow: hidden; pointer-events: none; }
+        .bg-part { position: absolute; color: var(--part-stream-color); opacity: 0.8; filter: blur(1px); animation: floatAndRotate linear infinite; }
+        @keyframes floatAndRotate { 0% { transform: translateY(110vh) rotate(0deg) scale(0.8); opacity: 0; } 10% { opacity: 0.8; } 90% { opacity: 0.8; } 100% { transform: translateY(-20vh) rotate(360deg) scale(1.2); opacity: 0; } }
+
+        .logo-container { display: flex; align-items: center; gap: 8px; margin-right: 12px; }
+        .gear-icon { color: var(--accent-blue); display: inline-block; animation: spin 4s linear infinite; font-size: 1.6rem; }
+        .gear-small { font-size: 0.9rem; margin-top: -12px; margin-left: -6px; animation: spin-rev 3s linear infinite; }
+        @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        @keyframes spin-rev { from { transform: rotate(360deg); } to { transform: rotate(0deg); } }
+
+        #scrollTopBtn {
+            display: none; position: fixed; bottom: 180px; right: 30px; z-index: 99;
+            border: none; outline: none; background-color: var(--primary-blue); color: white;
+            cursor: pointer; width: 50px; height: 50px; border-radius: 50%; font-size: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3); transition: 0.3s; border: 2px solid var(--accent-blue);
+        }
+        #scrollTopBtn:hover { background-color: var(--accent-blue); color: #000; transform: translateY(-5px); }
+
+        .theme-switch-wrapper { display: flex; align-items: center; margin-left: 15px; }
+        .theme-switch { display: inline-block; height: 26px; position: relative; width: 50px; }
+        .theme-switch input { display: none; }
+        .slider { background-color: #ccc; bottom: 0; cursor: pointer; left: 0; position: absolute; right: 0; top: 0; transition: .4s; border-radius: 34px; }
+        .slider:before { background-color: #fff; bottom: 4px; content: ""; height: 18px; left: 4px; position: absolute; transition: .4s; width: 18px; border-radius: 50%; }
+        input:checked + .slider { background-color: var(--accent-blue); }
+        input:checked + .slider:before { transform: translateX(24px); }
+        .mode-icon { font-size: 14px; margin-left: 8px; color: #fff; }
+
+        #preloader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #001d4a; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 9999; transition: opacity 0.5s ease; }
+        .box-container { position: relative; width: 120px; height: 120px; }
+        .box-icon { font-size: 60px; color: var(--accent-blue); position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); }
+        .part { position: absolute; font-size: 24px; color: white; opacity: 0; animation: fallIntoBox 2s infinite; }
+        .part-1 { left: 20%; animation-delay: 0.2s; }
+        .part-2 { left: 50%; animation-delay: 0.6s; }
+        .part-3 { left: 80%; animation-delay: 1s; }
+        @keyframes fallIntoBox { 0% { transform: translateY(-100px) rotate(0deg); opacity: 0; } 50% { opacity: 1; } 80% { transform: translateY(-10px) rotate(360deg); opacity: 0; } 100% { transform: translateY(0); opacity: 0; } }
+        .loading-text { color: white; margin-top: 20px; font-weight: 600; letter-spacing: 2px; animation: blink 1.5s infinite; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+        section { perspective: 1500px; padding: 60px 0; position: relative; z-index: 1; }
+        .category-box, .service-card, .feedback-card, .hours-card, .stat-box, .proprietor-card {
+            background: var(--card-bg); backdrop-filter: blur(12px); border: 1px solid var(--card-border);
+            border-radius: 20px; padding: 25px; transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            transform-style: preserve-3d; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05); color: var(--text-color);
+        }
+        .category-box i, .service-card i, .stat-box h2 { color: var(--primary-blue) !important; transition: 0.3s; }
+        .category-box:hover, .service-card:hover, .feedback-card:hover { transform: translateY(-10px) rotateX(5deg) scale(1.03); border-color: var(--accent-blue); cursor: pointer; }
+
+        .navbar { background: rgba(0, 29, 74, 0.95); backdrop-filter: blur(10px); border-bottom: 3px solid var(--accent-blue); z-index: 1001; }
+        .navbar-brand { font-weight: 700; color: white !important; display: flex !important; align-items: center; }
+        .navbar-brand span { color: var(--accent-blue); }
+        .nav-link { font-weight: 500; margin: 0 10px; color: rgba(255,255,255,0.8) !important; }
+        .nav-link:hover { color: var(--accent-blue) !important; }
+        .btn-call-nav { background: var(--accent-blue); color: #000 !important; font-weight: 700; border-radius: 50px; padding: 8px 20px; text-decoration: none; border: none; }
+        
+        .hero { background: linear-gradient(rgba(0, 29, 74, 0.8), rgba(0, 29, 74, 0.6)), url('https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?q=80&w=2000'); background-size: cover; height: 60vh; display: flex; align-items: center; justify-content: center; color: white; text-align: center; position: relative; z-index: 1; }
+        .hero-title { font-size: 5.5rem; font-weight: 800; text-transform: uppercase; text-shadow: 0 0 15px var(--accent-blue); }
+        .hero-desc { font-size: 1.1rem; max-width: 850px; margin: 0 auto; background: rgba(0,0,0,0.3); padding: 12px 25px; border-radius: 50px; backdrop-filter: blur(5px); }
+
+        .brand-slider { padding: 30px 0; background: rgba(255, 255, 255, 0.05); overflow: hidden; white-space: nowrap; position: relative; border-top: 1px solid var(--card-border); border-bottom: 1px solid var(--card-border); z-index: 1; }
+        .brand-track { display: inline-block; animation: scrollLogos 30s linear infinite; }
+        .brand-track img { height: 50px; margin: 0 40px; filter: grayscale(100%); opacity: 0.6; }
+        @keyframes scrollLogos { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+        .whatsapp-float { position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; background: #25d366; color: white; border-radius: 50px; display: flex; align-items: center; justify-content: center; font-size: 30px; z-index: 1000; box-shadow: 0 10px 25px rgba(0,0,0,0.3); text-decoration: none; }
+        .call-float { position: fixed; bottom: 105px; right: 30px; width: 60px; height: 60px; background: #007bff; color: white; border-radius: 50px; display: flex; align-items: center; justify-content: center; font-size: 25px; z-index: 1000; box-shadow: 0 10px 25px rgba(0,0,0,0.3); text-decoration: none; }
+
+        /* --- NEW: STAR RATING STYLES --- */
+        .star-rating { display: flex; flex-direction: row-reverse; justify-content: center; gap: 10px; margin-bottom: 15px; }
+        .star-rating input { display: none; }
+        .star-rating label { font-size: 30px; color: #ccc; cursor: pointer; transition: 0.2s; }
+        .star-rating input:checked ~ label, .star-rating label:hover, .star-rating label:hover ~ label { color: #ffc107; }
+        .btn-submit-review { background: var(--primary-blue); color: white; border: none; padding: 12px 35px; border-radius: 50px; font-weight: 600; transition: 0.3s; width: 100%; }
+        .btn-submit-review:hover { background: var(--accent-blue); color: #000; }
+
+        .proprietor-section { background: var(--dark-blue); color: white; padding: 60px 0; border-top: 5px solid var(--accent-blue); z-index: 1; }
+        .neon-name { font-size: 2.5rem; font-weight: 800; color: #fff; text-shadow: 0 0 15px var(--accent-blue); text-align: center; margin-bottom: 20px; }
+        footer { background: #000a1a; color: #88a0bc; padding: 40px 0; border-top: 5px solid var(--accent-blue); z-index: 1; }
+    </style>
+</head>
+<body id="home">
+
+    <div id="preloader">
+        <div class="box-container">
+            <i class="fas fa-cog part part-1"></i>
+            <i class="fas fa-wrench part part-2"></i>
+            <i class="fas fa-nut-bolt part part-3"></i>
+            <i class="fas fa-box-open box-icon"></i>
+        </div>
+        <div class="loading-text">JANAHITHA MOTORS</div>
+    </div>
+
+    <div id="bg-parts-container"></div>
+    <button onclick="topFunction()" id="scrollTopBtn"><i class="fas fa-chevron-up"></i></button>
+
+    <a href="tel:0772076006" class="call-float"><i class="fas fa-phone-alt"></i></a>
+    <a href="https://wa.me/94761276005" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#home">
+                <div class="logo-container"><i class="fas fa-cog gear-icon"></i><i class="fas fa-cog gear-icon gear-small"></i></div>
+                JANAHITHA <span>MOTORS</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#parts">Parts</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    <li class="nav-item ms-lg-3"><a href="tel:0772076006" class="btn-call-nav"><i class="fas fa-phone-alt me-2"></i>0772076006</a></li>
+                    <li class="nav-item ms-lg-3 d-flex align-items-center">
+                        <button class="lang-btn active" onclick="updateLang('en')">EN</button>
+                        <button class="lang-btn ms-1" onclick="updateLang('si')">සිං</button>
+                    </li>
+                    <li class="nav-item theme-switch-wrapper">
+                        <label class="theme-switch" for="checkbox"><input type="checkbox" id="checkbox" /><div class="slider"></div></label>
+                        <i class="fas fa-moon mode-icon"></i>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container reveal">
+            <h1 class="hero-title">JANAHITHA MOTORS</h1>
+            <p class="hero-desc" data-key="hero-desc">ජපන් වාහන අමතර කොටස්, යතුරුපැදි අළුත්වැඩියාව සහ අමතර කොටස් අලෙවිය, ලියවන පට්ටල් වැඩ සහ වෙල්ඩින් වැඩ කාර්මිකයෝ.</p>
+        </div>
+    </header>
+
+    <div class="brand-slider reveal">
+        <div class="brand-track">
+            <img src="https://www.carlogos.org/car-logos/toyota-logo.png" alt="Toyota">
+            <img src="https://www.carlogos.org/car-logos/honda-logo.png" alt="Honda">
+            <img src="https://www.carlogos.org/car-logos/nissan-logo.png" alt="Nissan">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/d/d4/Bajaj_Auto_logo.svg" alt="Bajaj">
+            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/8/86/TVS_Motor_Company_logo.svg/1200px-TVS_Motor_Company_logo.svg.png" alt="TVS">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Stihl_logo.svg/2560px-Stihl_logo.svg.png" alt="Stihl">
+            <img src="https://www.carlogos.org/car-logos/toyota-logo.png" alt="Toyota">
+            <img src="https://www.carlogos.org/car-logos/honda-logo.png" alt="Honda">
+            <img src="https://www.carlogos.org/car-logos/nissan-logo.png" alt="Nissan">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/d/d4/Bajaj_Auto_logo.svg" alt="Bajaj">
+            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/8/86/TVS_Motor_Company_logo.svg/1200px-TVS_Motor_Company_logo.svg.png" alt="TVS">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Stihl_logo.svg/2560px-Stihl_logo.svg.png" alt="Stihl">
+        </div>
+    </div>
+
+    <section class="proprietor-section">
+        <div class="container reveal">
+            <div class="neon-name">Janaka Pushpa Kumara</div>
+            <div class="row g-4 justify-content-center text-center">
+                <div class="col-md-5">
+                    <div class="proprietor-card">
+                        <h5 style="color:var(--accent-blue)" data-key="owner-h1">Professional Journey</h5>
+                        <p class="small text-white-50" data-key="owner-p1">With over 23 years of expertise in precision engineering.</p>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="proprietor-card">
+                        <h5 style="color:var(--accent-blue)" data-key="owner-h2">Business Vision</h5>
+                        <p class="small text-white-50" data-key="owner-p2">"My goal is clean, transparent, and reliable service."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5">
+        <div class="container reveal">
+            <div class="row g-4 align-items-center">
+                <div class="col-lg-6">
+                    <div class="hours-card">
+                        <h3 class="mb-4" data-key="hours-title"><i class="far fa-clock me-2"></i> Business Hours</h3>
+                        <div class="d-flex justify-content-between py-2 border-bottom border-secondary">
+                            <span data-key="day-daily">Monday - Sunday</span><span>8:00 AM - 6:30 PM</span>
+                        </div>
+                        <div class="d-flex justify-content-between py-2 text-warning fw-bold">
+                            <span data-key="day-poya">Poya Days</span><span data-key="status-closed">Closed</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="row g-3">
+                        <div class="col-6"><div class="stat-box text-center"><h2 class="fw-bold">20k+</h2><p class="small mb-0" data-key="stat-1">Customers</p></div></div>
+                        <div class="col-6"><div class="stat-box text-center"><h2 class="fw-bold">23+</h2><p class="small mb-0" data-key="stat-2">Years Exp.</p></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="parts" class="py-5 text-center">
+        <div class="container reveal">
+            <h2 class="fw-bold mb-5" data-key="parts-h2">Spare Parts Categories</h2>
+            <div id="mainCategories" class="row g-3 row-cols-2 row-cols-md-4 row-cols-lg-7">
+                <div class="col"><div class="category-box" onclick="showJapanBrands()"><i class="fas fa-car mb-3 fs-3"></i><h6 data-key="c1">Japan</h6></div></div>
+                <div class="col"><div class="category-box" onclick="showIndianBrands()"><i class="fas fa-truck-pickup mb-3 fs-3"></i><h6 data-key="c2">Indian</h6></div></div>
+                <div class="col"><div class="category-box" onclick="showMotoBrands()"><i class="fas fa-motorcycle mb-3 fs-3"></i><h6 data-key="c3">Moto</h6></div></div>
+                <div class="col"><div class="category-box"><i class="fas fa-tree mb-3 fs-3"></i><h6>Chainsaw</h6></div></div>
+                <div class="col"><div class="category-box"><i class="fas fa-leaf mb-3 fs-3"></i><h6>Grass Cutter</h6></div></div>
+                <div class="col"><div class="category-box"><i class="fas fa-ring mb-3 fs-3"></i><h6>Belts</h6></div></div>
+                <div class="col"><div class="category-box"><i class="fas fa-circle-notch mb-3 fs-3"></i><h6>Bearings</h6></div></div>
+            </div>
+
+            <div id="japanBrandsView" class="d-none">
+                <button class="back-btn" onclick="showMainCategories()"><i class="fas fa-arrow-left me-2"></i> Back</button>
+                <div class="row g-3 row-cols-2 row-cols-md-4 justify-content-center">
+                    <div class="col"><div class="category-box"><img src="https://www.carlogos.org/car-logos/toyota-logo.png" class="brand-logo"><h6>Toyota</h6></div></div>
+                    <div class="col"><div class="category-box"><img src="https://www.carlogos.org/car-logos/nissan-logo.png" class="brand-logo"><h6>Nissan</h6></div></div>
+                    <div class="col"><div class="category-box"><img src="https://www.carlogos.org/car-logos/mitsubishi-logo.png" class="brand-logo"><h6>Mitsubishi</h6></div></div>
+                    <div class="col"><div class="category-box"><img src="https://www.carlogos.org/car-logos/isuzu-logo.png" class="brand-logo"><h6>Isuzu</h6></div></div>
+                </div>
+            </div>
+
+            <div id="indianBrandsView" class="d-none">
+                <button class="back-btn" onclick="showMainCategories()"><i class="fas fa-arrow-left me-2"></i> Back</button>
+                <div class="row g-3 row-cols-2 row-cols-md-4 justify-content-center">
+                    <div class="col"><div class="category-box"><img src="https://www.carlogos.org/car-logos/tata-logo.png" class="brand-logo"><h6>TATA</h6></div></div>
+                    <div class="col"><div class="category-box"><img src="https://www.carlogos.org/car-logos/mahindra-logo.png" class="brand-logo"><h6>Mahindra</h6></div></div>
+                </div>
+            </div>
+
+            <div id="motoBrandsView" class="d-none">
+                <button class="back-btn" onclick="showMainCategories()"><i class="fas fa-arrow-left me-2"></i> Back</button>
+                <div class="row g-3 row-cols-2 row-cols-md-3 justify-content-center">
+                    <div class="col"><div class="category-box"><h6>Bajaj</h6></div></div>
+                    <div class="col"><div class="category-box"><h6>TVS</h6></div></div>
+                    <div class="col"><div class="category-box"><h6>Yamaha</h6></div></div>
+                    <div class="col"><div class="category-box"><h6>Hero Honda</h6></div></div>
+                    <div class="col"><div class="category-box"><h6>Honda</h6></div></div>
+                    <div class="col"><div class="category-box"><h6>Hero</h6></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-5 text-center">
+        <div class="container reveal">
+            <h2 class="fw-bold mb-5" data-key="serv-h2">Our Expert Services</h2>
+            <div class="row g-4">
+                <div class="col-md-4"><div class="service-card"><i class="fas fa-tools fs-1 mb-3"></i><h4 data-key="s1-h">Engineering</h4><p data-key="s1-p">Lathe work, welding, and spray painting.</p></div></div>
+                <div class="col-md-4"><div class="service-card"><i class="fas fa-motorcycle fs-1 mb-3"></i><h4 data-key="s2-h">Repairs</h4><p data-key="s2-p">Motorcycle and machinery servicing.</p></div></div>
+                <div class="col-md-4"><div class="service-card"><i class="fas fa-store fs-1 mb-3"></i><h4 data-key="s3-h">Wholesale</h4><p data-key="s3-p">Retail and wholesale genuine parts.</p></div></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 text-center">
+        <div class="container reveal">
+            <h2 class="fw-bold mb-5" data-key="feed-h">Customer Feedbacks</h2>
+            <div class="row g-4">
+                <div class="col-md-4"><div class="feedback-card"><div class="stars" style="color:#ffc107"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p data-key="f1">"Excellent service and high-quality parts."</p><h6>- Gamini Perera</h6></div></div>
+                <div class="col-md-4"><div class="feedback-card"><div class="stars" style="color:#ffc107"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p data-key="f2">"Very professional work. Best in town!"</p><h6>- Sunil Rathnayaka</h6></div></div>
+                <div class="col-md-4"><div class="feedback-card"><div class="stars" style="color:#ffc107"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p data-key="f3">"Friendly service and reasonable prices."</p><h6>- Samantha Silva</h6></div></div>
+            </div>
+            
+            <div class="row justify-content-center mt-5">
+                <div class="col-lg-6">
+                    <div class="feedback-card text-start">
+                        <h4 class="text-center mb-4 fw-bold">Add Your Review / ඔබේ අදහස එවන්න</h4>
+                        <form id="reviewForm">
+                            <div class="mb-3">
+                                <label class="form-label small fw-bold">Your Name / නම</label>
+                                <input type="text" id="reviewerName" class="form-control" placeholder="Enter your name" required>
+                            </div>
+                            <div class="star-rating">
+                                <input type="radio" name="stars" id="star5" value="5"><label for="star5" class="fas fa-star"></label>
+                                <input type="radio" name="stars" id="star4" value="4"><label for="star4" class="fas fa-star"></label>
+                                <input type="radio" name="stars" id="star3" value="3"><label for="star3" class="fas fa-star"></label>
+                                <input type="radio" name="stars" id="star2" value="2"><label for="star2" class="fas fa-star"></label>
+                                <input type="radio" name="stars" id="star1" value="1"><label for="star1" class="fas fa-star"></label>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label small fw-bold">Your Message / ඔබේ අදහස</label>
+                                <textarea id="reviewerMessage" class="form-control" rows="3" placeholder="Tell us about our service..." required></textarea>
+                            </div>
+                            <button type="button" onclick="submitUserReview()" class="btn-submit-review">Submit via WhatsApp</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-4">
+                <a href="https://g.page/r/YOUR_GOOGLE_REVIEW_LINK/review" target="_blank" class="google-review-btn">
+                    <i class="fab fa-google"></i> Rate Us on Google
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-5">
+        <div class="container reveal">
+            <div class="row g-5">
+                <div class="col-lg-7">
+                    <div class="p-4 border rounded-4 shadow-lg bg-white bg-opacity-10" style="backdrop-filter:blur(10px)">
+                        <h3 class="mb-4 fw-bold text-primary" data-key="form-h">Service & Part Request</h3>
+                        <form id="contactForm">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label small fw-bold">Name / නම</label>
+                                    <input type="text" id="userName" class="form-control" placeholder="Ex: Lahiru" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label small fw-bold">Phone / දුරකථන අංකය</label>
+                                    <input type="tel" id="userPhone" class="form-control" placeholder="07x xxxxxxx" required>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label small fw-bold">Select Service / සේවාව තෝරන්න</label>
+                                <select id="serviceType" class="form-select">
+                                    <option value="Spare Parts">Spare Parts (අමතර කොටස්)</option>
+                                    <option value="Lathe Work">Lathe Work (පට්ටල් වැඩ)</option>
+                                    <option value="Welding">Welding / Engineering (වෙල්ඩින්)</option>
+                                    <option value="Machine Repair">Machine/Moto Repair (අලුත්වැඩියාව)</option>
+                                    <option value="Other">Other (වෙනත්)</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label small fw-bold">Vehicle or Machine Model / වාහනය හෝ යන්ත්‍රය</label>
+                                <input type="text" id="vehicleModel" class="form-control" placeholder="Ex: Toyota LH113 / Honda Jade / Stihl MS382">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label small fw-bold">Requirement / ඔබේ අවශ්‍යතාවය</label>
+                                <textarea id="userMessage" class="form-control" rows="4" placeholder="අවශ්‍ය කොටස හෝ ගැටලුව මෙතැන ලියන්න..." required></textarea>
+                            </div>
+                            <button type="button" onclick="sendWhatsApp()" class="btn-submit" data-key="btn-send"><i class="fab fa-whatsapp me-2"></i> SEND VIA WHATSAPP</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="p-4 border rounded-4 bg-white bg-opacity-10 shadow-lg">
+                        <h3 class="mb-4 fw-bold" data-key="visit-h">Visit Our Shop</h3>
+                        <div class="rounded-4 overflow-hidden border mb-3" style="height: 250px;">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d1192.839846061327!2d80.75128033694084!3d6.216347101569724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNsKwMTInNTguOCJOIDgwwrA0NScwNi4wIkU!5e1!3m2!1sen!2slk!4v1715426463991!5m2!1sen!2slk" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+                        <p><i class="fas fa-map-marker-alt text-danger me-2"></i> Walasmulla Road, Middeniya.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="text-center">
+        <h2 class="text-white fw-bold mb-2">JANAHITHA MOTORS</h2>
+        <p class="small text-white-50">© 2026 Janahitha Motors. Designed by <a href="#" style="color:var(--accent-blue); text-decoration:none;">Lahiru D Arachchige</a>. All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Reveal logic
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                if (elementTop < windowHeight - 100) { reveals[i].classList.add("active"); }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+
+        // Background Icons
+        function createBgParts() {
+            const container = document.getElementById('bg-parts-container');
+            const icons = ['fa-cog', 'fa-wrench', 'fa-nut-bolt', 'fa-tools'];
+            for (let i = 0; i < 18; i++) {
+                const part = document.createElement('i');
+                part.classList.add('fas', icons[Math.floor(Math.random() * icons.length)], 'bg-part');
+                part.style.left = Math.random() * 100 + 'vw';
+                part.style.animationDuration = Math.random() * 10 + 12 + 's';
+                part.style.animationDelay = Math.random() * -20 + 's';
+                container.appendChild(part);
+            }
+        }
+
+        // Theme Toggle
+        const toggleSwitch = document.querySelector('#checkbox');
+        toggleSwitch.addEventListener('change', (e) => {
+            const theme = e.target.checked ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+        });
+
+        // Preloader
+        window.addEventListener('load', () => {
+            createBgParts(); reveal();
+            setTimeout(() => {
+                const preloader = document.getElementById('preloader');
+                preloader.style.opacity = '0';
+                setTimeout(() => { preloader.style.display = 'none'; }, 500);
+            }, 2000);
+        });
+
+        // Scroll Top
+        let mybutton = document.getElementById("scrollTopBtn");
+        window.onscroll = () => {
+            reveal();
+            mybutton.style.display = (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) ? "block" : "none";
+        };
+        function topFunction() { window.scrollTo({top: 0, behavior: 'smooth'}); }
+
+        // Category Navigation
+        function hideAllViews() {
+            ['mainCategories', 'japanBrandsView', 'indianBrandsView', 'motoBrandsView'].forEach(id => document.getElementById(id).classList.add('d-none'));
+        }
+        function showMainCategories() { hideAllViews(); document.getElementById('mainCategories').classList.remove('d-none'); }
+        function showJapanBrands() { hideAllViews(); document.getElementById('japanBrandsView').classList.remove('d-none'); }
+        function showIndianBrands() { hideAllViews(); document.getElementById('indianBrandsView').classList.remove('d-none'); }
+        function showMotoBrands() { hideAllViews(); document.getElementById('motoBrandsView').classList.remove('d-none'); }
+
+        // Languages
+        const content = {
+            en: {
+                'hero-desc': 'Japanese Auto Parts, Motorcycle Repair & Parts Sales, Lathe Work & Welding Engineering Specialists.',
+                'owner-h1': 'Professional Journey', 'owner-h2': 'Business Vision', 'owner-p1': 'Over 23 years of expertise in precision engineering.', 'owner-p2': '"My goal is clean, transparent, and reliable service."',
+                'hours-title': 'Business Hours', 'day-daily': 'Monday - Sunday', 'day-poya': 'Poya Days', 'status-closed': 'Closed',
+                'stat-1': 'Customers', 'stat-2': 'Years Exp.', 'parts-h2': 'Spare Parts Categories', 'c1': 'Japan', 'c2': 'Indian', 'c3': 'Moto',
+                'serv-h2': 'Our Expert Services', 's1-h': 'Engineering', 's1-p': 'Lathe work and welding.', 's2-h': 'Repairs', 's2-p': 'Machine servicing.', 's3-h': 'Wholesale', 's3-p': 'Retail and wholesale parts.',
+                'feed-h': 'Customer Feedbacks', 'f1': '"Excellent service and parts."', 'f2': '"Professional work."', 'f3': '"Friendly staff."', 'form-h': 'Service & Part Request', 'visit-h': 'Visit Our Shop', 'btn-send': 'SEND VIA WHATSAPP'
+            },
+            si: {
+                'hero-desc': 'ජපන් වාහන අමතර කොටස්, යතුරුපැදි අළුත්වැඩියාව සහ අමතර කොටස් අලෙවිය, ලියවන පට්ටල් වැඩ සහ වෙල්ඩින් වැඩ කාර්මිකයෝ.',
+                'owner-h1': 'වෘත්තීය ගමන් මග', 'owner-h2': 'ව්‍යාපාරික දැක්ම', 'owner-p1': 'වසර 23කට අධික කාර්මික පළපුරුද්ද.', 'owner-p2': '"මගේ ඉලක්කය විශ්වාසවන්ත සේවාවක් සැපයීමයි."',
+                'hours-title': 'විවෘත වේලාවන්', 'day-daily': 'සඳුදා - ඉරිදා', 'day-poya': 'පෝය දින', 'status-closed': 'වසා ඇත',
+                'stat-1': 'පාරිභෝගිකයින්', 'stat-2': 'පළපුරුද්ද', 'parts-h2': 'අමතර කොටස් කාණ්ඩ', 'c1': 'ජපන් වාහන', 'c2': 'ඉන්දියන් වාහන', 'c3': 'මෝටර් සයිකල්',
+                'serv-h2': 'අපගේ සේවාවන්', 's1-h': 'කාර්මික සේවා', 's1-p': 'පට්ටල් වැඩ සහ වෙල්ඩින්.', 's2-h': 'අලුත්වැඩියාව', 's2-p': 'මැෂින් සර්විස් කිරීම.', 's3-h': 'තොග සහ සිල්ලර', 's3-p': 'අමතර කොටස්.',
+                'feed-h': 'පාරිභෝගික ප්‍රතිචාර', 'f1': '"ඉතා හොඳ සේවාවක්."', 'f2': '"ඉතාමත් දක්ෂ වැඩ."', 'f3': '"සුහදශීලී සේවාවක්."', 'form-h': 'අමතර කොටස් විමසීම්', 'visit-h': 'අප වෙත පැමිණෙන්න', 'btn-send': 'WHATSAPP හරහා එවන්න'
+            }
+        };
+
+        function updateLang(lang) {
+            document.querySelectorAll('[data-key]').forEach(el => { el.innerHTML = content[lang][el.getAttribute('data-key')]; });
+            document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+            if(event) event.target.classList.add('active');
+        }
+
+        // WhatsApp Functions
+        function sendWhatsApp() {
+            const name = document.getElementById('userName').value;
+            const phone = document.getElementById('userPhone').value;
+            const service = document.getElementById('serviceType').value;
+            const model = document.getElementById('vehicleModel').value;
+            const message = document.getElementById('userMessage').value;
+            if(!name || !phone || !message) { alert("Please fill all required fields!"); return; }
+            const text = `*New Inquiry - Janahitha Motors*%0A%0AName: ${name}%0APhone: ${phone}%0AService: ${service}%0AModel: ${model}%0AMessage: ${message}`;
+            window.open(`https://wa.me/94761276005?text=${text}`, '_blank');
+        }
+
+        // NEW: Submit User Review via WhatsApp
+        function submitUserReview() {
+            const name = document.getElementById('reviewerName').value;
+            const message = document.getElementById('reviewerMessage').value;
+            const stars = document.querySelector('input[name="stars"]:checked')?.value || "No rating";
+            if(!name || !message) { alert("Please fill all fields!"); return; }
+            const text = `*New Customer Review - Janahitha Motors*%0A%0AName: ${name}%0ARating: ${stars} Stars%0AMessage: ${message}`;
+            window.open(`https://wa.me/94761276005?text=${text}`, '_blank');
+            alert("Thank you for your feedback!");
+            document.getElementById('reviewForm').reset();
+        }
+    </script>
+</body>
+</html>
